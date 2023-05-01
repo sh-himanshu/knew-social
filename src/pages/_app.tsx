@@ -1,6 +1,14 @@
-import { AppProps } from "next/app";
-import Head from "next/head";
+import "@/styles/globals.scss";
 import { MantineProvider } from "@mantine/core";
+import { AppProps } from "next/app";
+import { Poppins } from "next/font/google";
+import Head from "next/head";
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  subsets: ["latin"],
+});
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -17,11 +25,15 @@ export default function App(props: AppProps) {
 
       <MantineProvider
         withGlobalStyles
+        withNormalizeCSS
         theme={{
           colorScheme: "dark",
+          fontFamily: "var(--font-poppins)",
         }}
       >
-        <Component {...pageProps} />
+        <main className={`${poppins.variable} font-sans`}>
+          <Component {...pageProps} />
+        </main>
       </MantineProvider>
     </>
   );

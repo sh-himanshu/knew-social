@@ -45,7 +45,7 @@ const SurveyPage = () => {
   const surveyForm = useForm({ initialValues });
   return (
     <Layout>
-      <div className="mx-auto max-w-3xl p-8">
+      <div className="mx-auto max-w-3xl px-4 py-8 sm:px-8">
         <div className="bg-violet-500 bg-clip-text ">
           <h1 className=" text-center text-5xl font-bold uppercase tracking-tighter text-transparent">
             Survey
@@ -80,7 +80,7 @@ const SurveyPage = () => {
                         type: "checkbox",
                       })}
                     >
-                      <Stack mt="xs" ml="lg">
+                      <Stack mt="xs" className="sm:ml-4">
                         {question.options.map((option, j) => (
                           <Checkbox
                             color="violet"
@@ -98,7 +98,7 @@ const SurveyPage = () => {
                       {...surveyForm.getInputProps(`q-${i + 1}`)}
                       description={question.description}
                     >
-                      <Stack mt="xs" ml="lg">
+                      <Stack mt="xs" className="sm:ml-4">
                         {question.options.map((option, j) => (
                           <Radio
                             color="violet"
@@ -114,7 +114,7 @@ const SurveyPage = () => {
                     <TextInput
                       size="sm"
                       mt="xs"
-                      ml="lg"
+                      className="sm:ml-4"
                       placeholder="Type here"
                       label={question.other}
                       variant="filled"
@@ -130,7 +130,7 @@ const SurveyPage = () => {
                     Q{i + 1}. {question.title}
                   </Text>
                   {question.options.map((option, k) => (
-                    <Group key={`rating_${i}_${k}`} ml="lg">
+                    <Group key={`rating_${i}_${k}`} className="sm:ml-4">
                       <Rating
                         emptySymbol={<TbCircle className="text-violet-800" />}
                         fullSymbol={

@@ -5,3 +5,6 @@ export const parseError = (error: unknown) => {
 };
 
 export const getTimestamp = () => format(new Date(), "Pp");
+
+export const getGooglePrivateKey = () =>
+  process.env.GOOGLE_PRIVATE_KEY as string;

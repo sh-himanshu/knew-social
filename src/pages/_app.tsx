@@ -1,5 +1,7 @@
+import SurveyContext from "@/context/surveyContext";
 import "@/styles/globals.scss";
 import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 import { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
 import Head from "next/head";
@@ -31,9 +33,12 @@ export default function App(props: AppProps) {
           fontFamily: "var(--font-poppins)",
         }}
       >
-        <main className={`${poppins.variable} font-sans`}>
-          <Component {...pageProps} />
-        </main>
+        <SurveyContext>
+          <main className={`${poppins.variable} font-sans`}>
+            <Notifications />
+            <Component {...pageProps} />
+          </main>
+        </SurveyContext>
       </MantineProvider>
     </>
   );

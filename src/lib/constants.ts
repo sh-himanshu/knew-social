@@ -27,7 +27,7 @@ export const SURVEY: Array<Question> = [
   },
   {
     title:
-      "Rank the problems faced while learning online (5 being the most relatable)",
+      "Rank the problems faced while learning online (5 being the most relatable). Leave empty if NA",
     type: "rating",
     options: [
       "Lengthy content",
@@ -40,8 +40,8 @@ export const SURVEY: Array<Question> = [
     multiple: true,
   },
   {
-    title: "What's your preferred social media platform?",
-    type: "rating",
+    title: "What are your preferred social media platform(s)?",
+    type: "choice",
     options: ["Instagram", "Facebook", "TikTok", "Reddit", "Twitter"],
     other: "Other",
     multiple: true,
@@ -70,7 +70,7 @@ export const SURVEY: Array<Question> = [
     multiple: true,
   },
   {
-    title: "Rank these content genres based on your preference",
+    title: "Rank these content genres based on your preference.",
     type: "rating",
     options: [
       "Entertainment (dance, music, humor)",
@@ -83,14 +83,13 @@ export const SURVEY: Array<Question> = [
   },
   {
     title:
-      "Do you face any issues with the current social media environment? Rank them below if yes",
+      "Do you face any issues with the current social media environment? Rank them below if yes or leave empty if NA",
     type: "rating",
     options: [
       "Cluttered experience (getting bombarded with unorganized content)",
       "Misinformation",
       "Content that does not add value",
       "Distractive/addictive environment",
-      "No Issues",
     ],
     other: "Other issues",
     multiple: true,
@@ -108,3 +107,6 @@ export const SURVEY: Array<Question> = [
     ],
   },
 ];
+
+export const NO_HEADER_MESSAGE =
+  "No values in the header row - fill the first row with header values before trying to interact with rows";

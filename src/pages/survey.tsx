@@ -241,6 +241,7 @@ const SurveyPage = () => {
               radius="md"
               size="lg"
               onClick={onButtonClick}
+              disabled={visible}
             >
               SUBMIT
             </Button>

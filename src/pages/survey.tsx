@@ -218,11 +218,11 @@ const SurveyPage = () => {
                 )}
               </div>
             ))}
-            <Group position="center" mt="lg">
+            <Group position="left" mt="lg">
               <Radio.Group
                 {...surveyForm.getInputProps("waitlist")}
                 name="joinTheWaitList"
-                label="Join the Waitlist ?"
+                label="We're building a knowledge driven social platform. Join the wait list and be part of this journey!"
                 withAsterisk
                 size="md"
               >

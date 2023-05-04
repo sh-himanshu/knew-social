@@ -46,6 +46,7 @@ const SurveyPage = () => {
         {
           name: "",
           email: "",
+          waitlist: "yes",
         }
       ),
     []
@@ -68,7 +69,7 @@ const SurveyPage = () => {
         loading: true,
         radius: "lg",
         title: "Processing",
-        message: "Saving your response...",
+        message: "Saving your response",
         autoClose: false,
         withCloseButton: false,
       });
@@ -78,7 +79,7 @@ const SurveyPage = () => {
         color: "teal",
         radius: "lg",
         title: "Saved successfully",
-        message: "Thank you for your valuable feedback :)",
+        message: "",
         icon: <TbCheck size="1rem" />,
         autoClose: 3000,
       });
@@ -217,13 +218,27 @@ const SurveyPage = () => {
                 )}
               </div>
             ))}
+            <Group position="center" mt="lg">
+              <Radio.Group
+                {...surveyForm.getInputProps("waitlist")}
+                name="joinTheWaitList"
+                label="Join the Waitlist ?"
+                withAsterisk
+                size="md"
+              >
+                <Group mt="xs">
+                  <Radio color="violet" value="yes" label="Yes" />
+                  <Radio color="violet" value="no" label="No" />
+                </Group>
+              </Radio.Group>
+            </Group>
           </div>
-          <Group position="center" mt="md">
+          <Group position="center" mt="lg">
             <Button
               type="submit"
               variant="gradient"
               gradient={{ from: "#6741d9", to: "#472c98", deg: 45 }}
-              radius="xl"
+              radius="md"
               size="lg"
               onClick={onButtonClick}
             >

@@ -19,6 +19,7 @@ const getHeaderRow = () => [
   "Timestamp",
   "Name",
   "Email",
+  "WaitList",
   ...SURVEY.map((item, index) => `Q${index + 1}. ${item.title}`),
 ];
 
@@ -32,19 +33,23 @@ const parseData = (obj: any) =>
             ? obj[current]
             : [obj[current]];
         } else {
-          total[`${prefix}-${ques_no}`] =
-            typeof obj[`${prefix}-${ques_no}`] === "undefined"
-              ? [obj[current]]
-              : Array.isArray(obj[`${prefix}-${ques_no}`])
-              ? [...obj[`${prefix}-${ques_no}`], obj[current]]
-              : [obj[`${prefix}-${ques_no}`], obj[current]];
+          if (typeof total[`${prefix}-${ques_no}`] === "undefined") {
+            total[`${prefix}-${ques_no}`] = [obj[current]];
+          } else if (obj[current] !== "") {
+            total[`${prefix}-${ques_no}`] = [
+              ...total[`${prefix}-${ques_no}`],
+              obj[current],
+            ];
+          }
         }
       } else {
         total[current] = obj[current];
       }
       return total;
     }, {})
-  ).map((i) => (Array.isArray(i) ? i.join(",") : i)) as Array<number | string>;
+  ).map((i) => (Array.isArray(i) ? i.join(" | ") : i)) as Array<
+    number | string
+  >;
 
 export const saveUserResponse = async (data: any) => {
   const timestamp = getTimestamp();

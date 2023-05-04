@@ -23,6 +23,8 @@ const SurveyContext = ({ children }: SurveyContextProviderProps) => {
 
   useEffect(() => {
     if (taken) {
+      if (typeof window !== "undefined" && window.localStorage)
+        localStorage.setItem("surveyTaken", "True");
       setTimeout(() => router.push("/"), 2500);
     }
   }, [router, taken]);

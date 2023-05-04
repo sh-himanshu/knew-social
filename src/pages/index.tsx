@@ -23,7 +23,7 @@ export default function IndexPage() {
           <span>{survey?.taken ? "Knowledge." : "What do you"}</span>
           <Text
             variant="gradient"
-            className="animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] px-2"
+            className="animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite] px-2 hover:animate-none"
             gradient={{
               from: "rgb(167 139 250)",
               to: "rgb(91 33 182)",
@@ -47,7 +47,7 @@ export default function IndexPage() {
               <Link href={"/survey"}>
                 <Button
                   variant="light"
-                  className="animate-bounce hover:bg-violet-900"
+                  className="animate-bounce hover:animate-none hover:bg-violet-900"
                   color="violet"
                   radius="xl"
                   size="lg"
